@@ -10,7 +10,7 @@ Feature: buy in alkomprar
     Given that Stiven wants search a product in alkomprar page
     When he enters the product
       | product |
-      | huawei  |
+      | lg      |
     When he adds the product number
       | number |
       |      3 |

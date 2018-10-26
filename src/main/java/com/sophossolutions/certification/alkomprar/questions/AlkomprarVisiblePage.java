@@ -8,13 +8,15 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
 /**
- * Clase Question para verificar la conexion de internet, comparando con un elemento del menu de newtours
+ * Clase Question para verificar la conexion de internet, comparando con un
+ * elemento de la pagina inicial de Alkomprar
+ * 
  * @author manco.5@hotmail.com
  */
 
-public class AlkomprarVisiblePage implements Question<Boolean>  {
-	
-	//verifica si el boton SEARCH esta visible para el actor
+public class AlkomprarVisiblePage implements Question<Boolean> {
+
+	// verifica si el boton SEARCH esta visible para el actor
 	@Override
 	public Boolean answeredBy(Actor actor) {
 		return the(AlkomprarHomePage.SEARCH_BUTTON).answeredBy(actor).isCurrentlyVisible();

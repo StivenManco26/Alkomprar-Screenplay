@@ -1,5 +1,10 @@
 package com.sophossolutions.certification.alkomprar.models;
 
+/**
+ * Clase modelo para el formulario Flight Finder en newtours 
+ * @author manco.5@hotmail.com
+ */
+
 public class SearchModel {
 
 	private String producto;

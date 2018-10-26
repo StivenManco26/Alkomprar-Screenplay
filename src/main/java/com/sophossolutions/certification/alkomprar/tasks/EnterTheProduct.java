@@ -10,24 +10,27 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 
-public class EnterTheProduct  implements Task {
+/**
+ * Clase tarea que implementa Task y que ingresa el producto a buscar
+ * 
+ * @author manco.5@hotmail.com
+ */
+public class EnterTheProduct implements Task {
 
-	//private String product;
 	private SearchModel searchModel;
-	
-	// public EnterTheProduct(List<String> product) {
-	// this.product = product.get(1).toString();
-	// }
+
 	public EnterTheProduct(SearchModel searchModel) {
 		this.searchModel = searchModel;
 	}
 
+	// Metodo para ingresar el nombre del producto recibido desde el feature y luego
+	// hacer click en buscar
 	@Override
 	public <T extends Actor> void performAs(T actor) {
 		actor.attemptsTo(Enter.theValue(searchModel.getProducto()).into(AlkomprarHomePage.SEARCH_TEXTBOX),
 				Click.on(AlkomprarHomePage.SEARCH_BUTTON));
 	}
-	
+
 	public static EnterTheProduct forSearch(SearchModel searchModel) {
 		return instrumented(EnterTheProduct.class, searchModel);
 	}

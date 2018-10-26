@@ -39,16 +39,21 @@ public class AlkomprarSearchStepDefinitions {
 		stiven.can(BrowseTheWeb.with(hisBrowser));
 	}
 
+	// Inicializa el WebDriver en la pagina de Alkomprar
 	@Given("^that Stiven wants search a product in alkomprar page$")
 	public void thatStivenWantsSearchAProductInAlkomprarPage() {
 		stiven.wasAbleTo(OpenTheBrowser.on(alkomprarHomePage));
 	}
 
+	// Recibe una lista de tipo SearchModel que contiene el producto a buscar y
+	// luego envia dicho producto a la tarea EnterTheProduct
 	@When("^he enters the product$")
 	public void heEntersTheProduct(List<SearchModel> product) {
 		stiven.attemptsTo(EnterTheProduct.forSearch(product.get(1)));
 	}
 
+	// Verifica que el number sea menor al numero total de productos de la lista y
+	// luego agrega al carrito el item number de la lista de productos
 	@When("^he adds the product number$")
 	public void heAddsTheProductNumber(List<String> number) {
 		stiven.should(
@@ -56,6 +61,7 @@ public class AlkomprarSearchStepDefinitions {
 		stiven.attemptsTo(AddsToShoppingCar.item(number));
 	}
 
+	//Verifica que el producto haya sido ingresado correctamente al carrito
 	@Then("^he should see the results page$")
 	public void heShouldSeeTheResultsPage() {
 		stiven.should(seeThat(InMyCart.isTheProduct()));
